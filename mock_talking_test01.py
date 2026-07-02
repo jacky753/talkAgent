@@ -14,7 +14,7 @@ from ollama import Client
 # 設定
 # =========================
 
-OLLAMA_MODEL = "qwen3:1.7b"#"qwen3:4b"
+OLLAMA_MODEL = "qwen3:4b"#"qwen3:1.7b"#
 VOICEVOX_URL = "http://127.0.0.1:50021"
 VOICEVOX_SPEAKER = 3  # 話者ID。VOICEVOX側で変更可能。
 
@@ -56,7 +56,7 @@ def transcribe_audio(model, audio):
             f.name,
             language="ja",
             beam_size=5,
-            vad_filter=True,
+            vad_filter=False,#True,
         )
 
         text = "".join(seg.text for seg in segments).strip()

@@ -1,0 +1,64 @@
+
+curl http://127.0.0.1:11434/api/tags
+ollama list
+export OLLAMA_MODEL="qwen3:1.7b"
+export OLLAMA_HOST="http://127.0.0.1:11434"
+export ENABLE_TTS=1
+export 
+python mock_talking_test01_wsl_pulse.py
+
+
+curl http://127.0.0.1:11434/api/tags
+ollama list
+export OLLAMA_MODEL="qwen3:4b"
+export OLLAMA_HOST="http://127.0.0.1:11434"
+export ENABLE_TTS=1
+export 
+python mock_talking_test01_wsl_pulse.py
+
+
+export PULSE_SERVER=unix:/mnt/wslg/PulseServer
+export OLLAMA_HOST="http://127.0.0.1:11434"
+export OLLAMA_MODEL="qwen3:4b"
+export VOICEVOX_URL="http://127.0.0.1:50021"
+export ENABLE_TTS=1
+export SILENCE_SEC=1.2
+python mock_talking_test01_always_listen.py
+
+反応が悪い場合の調整
+
+声を検出しにくい場合：
+
+export VAD_THRESHOLD=0.005
+
+雑音で勝手に反応する場合：
+
+export VAD_THRESHOLD=0.02
+
+発話終了までが遅い場合：
+
+export SILENCE_SEC=0.5
+
+発話途中で切れる場合：
+
+export SILENCE_SEC=1.2
+
+この版の流れは次の通りです。
+
+常時マイク待機
+→ 音量RMSで発話検出
+→ 無音が続いたら発話終了
+→ faster-whisperで文字起こし
+→ qwen3:1.7bへ送信
+→ VOICEVOXで読み上げ
+→ 再び待機
+
+
+
+
+
+
+chmod +x ./run
+./run --host 127.0.0.1 --port 50021
+
+

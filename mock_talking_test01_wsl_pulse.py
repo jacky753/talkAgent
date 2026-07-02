@@ -16,9 +16,12 @@ from ollama import Client
 # =========================
 
 OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "qwen3:1.7b")
-OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://127.0.0.1:11434")
+#OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "qwen3:4b")
 
-VOICEVOX_URL = os.environ.get("VOICEVOX_URL")
+OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://127.0.0.1:11434")
+#OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "http://127.0.0.1:50021")
+
+VOICEVOX_URL = os.environ.get("VOICEVOX_URL",  "http://127.0.0.1:50021")
 VOICEVOX_SPEAKER = int(os.environ.get("VOICEVOX_SPEAKER", "3"))
 
 # WSLのPulseAudio/parecord用。Whisperには16 kHz monoで十分です。

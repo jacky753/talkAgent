@@ -1,2 +1,7 @@
 voicevox_engine-linux-cpu-x64-0.25.2.7z.001
 linux-cpu-x64
+*.7z
+*.7z.*
+voicevox_engine-linux-cpu-x64-*.7z.*
+*.7z
+*.7z.*

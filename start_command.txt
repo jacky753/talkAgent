@@ -19,10 +19,11 @@ python mock_talking_test01_wsl_pulse.py
 
 export PULSE_SERVER=unix:/mnt/wslg/PulseServer
 export OLLAMA_HOST="http://127.0.0.1:11434"
-export OLLAMA_MODEL="qwen3:4b"
+export OLLAMA_MODEL="qwen3:1.7b"
 export VOICEVOX_URL="http://127.0.0.1:50021"
 export ENABLE_TTS=1
 export SILENCE_SEC=1.2
+export VAD_THRESHOLD=0.02
 python mock_talking_test01_always_listen.py
 
 反応が悪い場合の調整
